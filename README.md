@@ -197,3 +197,12 @@ cd ~/alura-imersao-dev
 git remote set-url origin https://github.com/SEU_USUARIO/agente-estudos.git
 git push -u origin main
 ```
+
+---
+
+## 📚 Referências
+
+- [Antigravity CLI](https://antigravity.google/)
+- [Google ADK: documentação](https://adk.dev/)
+- [ADK Skills](https://adk.dev/skills/) · [Especificação Agent Skills](https://agentskills.io/specification)
+- [Google AI Studio: API Keys](https://aistudio.google.com/apikey)
