@@ -17,7 +17,7 @@ Construir o **`agente-estudos`**: um agente **Google ADK** (Python) movido a ski
   ```env
   GOOGLE_GENAI_USE_VERTEXAI=FALSE
   GEMINI_API_KEY=<sua-api-key>
-  MODEL=gemini-flash-latest
+  MODEL=gemini-3.8-flash
   ```
 * **Execução local:**
   ```bash
@@ -30,7 +30,7 @@ Construir o **`agente-estudos`**: um agente **Google ADK** (Python) movido a ski
 * **Framework:** use só o **Google ADK** em Python, seguindo a especificação de ADK Skills (`load_skill_from_dir` + `SkillToolset`).
 * **Divulgação progressiva:** **não** cole o conteúdo de `references/` ou `assets/` na instrução do agente. O conteúdo deve ser carregado sob demanda pelas ferramentas da skill.
 * **Empacotamento da skill:** copie `skills/plano-de-estudos/` para `agente-estudos/app/skills/plano-de-estudos/`, porque o ADK resolve o caminho a partir do `agent.py`. A pasta precisa ter **exatamente** o nome do campo `name` do frontmatter. Ao alterar uma skill, mantenha as duas cópias sincronizadas.
-* **Modelo:** leia o modelo da variável de ambiente `MODEL`, com padrão `gemini-flash-latest`. Não deixe o nome do modelo fixo no código.
+* **Modelo:** leia o modelo da variável de ambiente `MODEL`, com padrão `gemini-3.8-flash`. Não deixe o nome do modelo fixo no código.
 * **Data atual:** injete a data de hoje na instrução do agente, via *instruction provider* do ADK, para que ele entenda expressões como "segunda que vem".
 * **Segredos:** **nunca** versione o `.env` nem escreva a API Key em código, README, testes ou logs.
 * **Dependências:** gerencie com `uv` dentro de `agente-estudos/` (`uv sync`).
