@@ -4,8 +4,6 @@ Roteiro do aulão das **Aulas 3 e 4** da **Imersão Dev Engenharia de Software n
 
 O agente é **movido a skills**: o conhecimento dele mora em arquivos Markdown na pasta [`skills/`](skills/). Vamos usar a skill [`plano-de-estudos`](skills/plano-de-estudos/SKILL.md), que transforma um objetivo ("passar na entrevista de estágio em 3 semanas") em um **plano de estudos com revisão espaçada, checkpoints e um CSV que você importa direto no Google Agenda**.
 
-> Roteiro baseado no workshop [carlosmscabral/workshop-agy](https://github.com/carlosmscabral/workshop-agy), adaptado para a Imersão Dev Engenharia de Software na Era da IA, com foco no `agy` e no desenvolvimento local.
-
 ---
 
 ## 🧩 Modelo mental
@@ -464,4 +462,3 @@ Nesta etapa você usa o `agy` como engenheiro de software: revisar código, acha
 - [Google ADK: documentação](https://adk.dev/)
 - [ADK Skills](https://adk.dev/skills/) · [Especificação Agent Skills](https://agentskills.io/specification)
 - [Google AI Studio: API Keys](https://aistudio.google.com/apikey)
-- [Workshop de referência: workshop-agy](https://github.com/carlosmscabral/workshop-agy)
