@@ -35,7 +35,11 @@ cd ~/alura-imersao-dev
 curl -LsSf https://astral.sh/uv/install.sh | sh
 curl -fsSL https://antigravity.google/cli/install.sh | bash
 source ~/.bashrc
+```
 
+Para iniciar o Antigravity CLI, utilize o comando:
+
+```bash
 agy
 ```
 
