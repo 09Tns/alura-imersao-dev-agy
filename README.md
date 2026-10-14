@@ -1,6 +1,6 @@
 # 🧠 Imersão Dev Engenharia de Software na Era da IA: Agente de Estudos com Antigravity CLI + Google ADK
 
-Neste lab você vai usar o **Antigravity CLI (`agy`)** para criar, com o **Google ADK**, um agente especialista em estudos. O agente usa a skill [`plano-de-estudos`](skills/plano-de-estudos/SKILL.md): você diz o que quer aprender e até quando, e ele monta um plano de estudos com um CSV para importar no Google Agenda.
+Neste lab você vai usar o **Antigravity CLI (`agy`)** para criar, com o **Google ADK**, um agente especialista em estudos. O agente usa a skill [`plano-de-estudos`](skills/plano-de-estudos/SKILL.md): você diz o que quer aprender e até quando, e ele monta um plano de estudos e salva um arquivo CSV para importar no Google Agenda, usando o [EnvironmentToolset](https://adk.dev/integrations/environment-toolset/) do ADK.
 
 ## Pré-requisitos
 
@@ -86,12 +86,13 @@ O `agy` vai te entrevistar sobre o agente. Use estas respostas como base:
 - **Objetivo:** um mentor de estudos que monta planos personalizados, com revisão espaçada e uma agenda em CSV para o Google Agenda.
 - **Skills:** usar ADK Skills ([adk.dev/skills](https://adk.dev/skills/)) com a skill `skills/plano-de-estudos`.
 - **Comportamento:** se faltar objetivo, prazo, disponibilidade ou nível, o agente pergunta antes de montar o plano.
+- **Arquivos:** o agente salva a agenda em `plano-de-estudos.csv` usando o [EnvironmentToolset](https://adk.dev/integrations/environment-toolset/), sem acesso ao shell.
 - **Execução:** local, no ADK Web, com API Key do Google AI Studio. Sem deploy.
 
 Depois peça a criação do projeto:
 
 ```text
-Crie um agente ADK chamado agente-estudos seguindo as convenções do agents-cli e a especificação de ADK Skills. Copie a skill skills/plano-de-estudos para agente-estudos/app/skills/ e carregue-a com SkillToolset. O modelo vem da variável MODEL e a instrução do agente deve incluir a data de hoje. Sem configuração de deploy.
+Crie um agente ADK chamado agente-estudos seguindo as convenções do agents-cli e a especificação de ADK Skills. Copie a skill skills/plano-de-estudos para agente-estudos/app/skills/ e carregue-a com SkillToolset. Adicione o EnvironmentToolset com um LocalEnvironment na pasta agente-estudos/planos/, expondo só as ferramentas ReadFile e WriteFile, para o agente salvar o CSV. O modelo vem da variável MODEL e a instrução do agente deve incluir a data de hoje. Sem configuração de deploy.
 ```
 
 Saia com `/exit`.
@@ -129,16 +130,23 @@ Clique no link `http://127.0.0.1:8000` que aparece no terminal e escolha o agent
     ```text
     Quero organizar meus estudos de JavaScript.
     ```
-2. **Pedido completo:** o agente deve entregar o plano com o CSV.
+2. **Pedido completo:** o agente deve entregar o plano e chamar a ferramenta `WriteFile` para salvar o CSV.
     ```text
     Quero aprender JavaScript para fazer meu primeiro projeto de portfólio em 5 semanas. Começo segunda que vem. Posso estudar segunda, quarta e sexta, 2h por dia às 19h. Já sei HTML e CSS, mas nunca programei.
     ```
-3. **Ajuste:** o agente deve reorganizar o plano.
+3. **Ajuste:** o agente deve reorganizar o plano e sobrescrever o CSV.
     ```text
     Perdi as sessões de quarta e sexta da primeira semana. Ajusta o plano?
     ```
 
-Para importar o plano, salve o bloco CSV como `plano.csv` e use, no [Google Agenda](https://calendar.google.com/), **Configurações → Importar e exportar → Importar**.
+No ADK Web, clique nos eventos `WriteFile` para ver os argumentos e a resposta da ferramenta. Depois confira o arquivo numa segunda aba do Cloud Shell:
+
+```bash
+cat ~/alura-imersao-dev/agente-estudos/planos/plano-de-estudos.csv
+cloudshell download ~/alura-imersao-dev/agente-estudos/planos/plano-de-estudos.csv
+```
+
+Com o arquivo no computador, importe no [Google Agenda](https://calendar.google.com/): **Configurações → Importar e exportar → Importar**.
 
 ## 8. Evoluir o agente com o `agy`
 
@@ -155,16 +163,16 @@ agy
 Revise o código do agente-estudos e liste os problemas por severidade antes de corrigir.
 ```
 
+**Validar o resultado:**
+
+```text
+Leia agente-estudos/planos/plano-de-estudos.csv e confira se ele segue as regras do CSV em skills/plano-de-estudos/assets/plano_template.md: cabeçalho, formato de data e hora, aspas na descrição e nenhuma sessão fora dos dias combinados. Liste o que estiver errado.
+```
+
 **Corrigir um problema que você viu no teste:**
 
 ```text
-No teste do ADK Web, o agente [descreva o problema]. Descubra a causa e corrija.
-```
-
-**Testes:**
-
-```text
-Crie testes com pytest para o agente-estudos que verifiquem se a skill carrega sem erros e se o root_agent tem o SkillToolset. Rode os testes.
+No teste do ADK Web ou na validação, o agente [descreva o problema]. Descubra a causa e corrija.
 ```
 
 **Nova skill:**
@@ -205,4 +213,5 @@ git push -u origin main
 - [Antigravity CLI](https://antigravity.google/)
 - [Google ADK: documentação](https://adk.dev/)
 - [ADK Skills](https://adk.dev/skills/) · [Especificação Agent Skills](https://agentskills.io/specification)
+- [ADK EnvironmentToolset](https://adk.dev/integrations/environment-toolset/)
 - [Google AI Studio: API Keys](https://aistudio.google.com/apikey)

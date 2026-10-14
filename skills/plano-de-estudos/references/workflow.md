@@ -48,9 +48,13 @@ No último dia de estudo de cada semana, inclua um **checkpoint** com:
 
 1. Use `load_skill_resource` para ler `assets/plano_template.md`.
 2. Preencha **todas** as seções do template, na ordem.
-3. Gere o bloco **CSV para o Google Agenda** seguindo exatamente as regras descritas no template:
+3. Monte o **CSV para o Google Agenda** seguindo exatamente as regras descritas no template:
    * Se o plano tiver **até 14 dias de estudo**, inclua todas as sessões.
    * Se tiver **mais de 14**, inclua só os primeiros 14 dias de estudo e avise: "Quer que eu gere o CSV das próximas semanas?".
+4. **Salve o CSV em arquivo** com a ferramenta `WriteFile`, no caminho `plano-de-estudos.csv` (relativo ao ambiente). Passe em `content` o CSV completo, começando pelo cabeçalho, sem a cerca ```` ```csv ````.
+   * Se a ferramenta devolver erro, corrija e tente de novo uma vez.
+   * Se a ferramenta `WriteFile` não estiver disponível, mostre o CSV num bloco ```` ```csv ```` na seção 5 do template.
+5. Na resposta, preencha a seção 5 do template com o **caminho do arquivo salvo** e o número de sessões. Não repita o CSV inteiro na conversa quando o arquivo tiver sido salvo.
 
 ## Passo 6: Ajustes e Replanejamento
 
@@ -59,4 +63,4 @@ Depois de entregar o plano, a pessoa pode pedir mudanças. Siga estas regras:
 * **"Perdi sessões" / "atrasei"**: não empilhe o conteúdo atrasado em um único dia. Primeiro use os dias de margem; se não bastar, empurre o restante para frente e corte módulos `Opcional`. Nunca corte as revisões D+1.
 * **"Mudou minha disponibilidade"**: refaça a partir do Passo 1, mantendo o que já foi estudado.
 * **"Quero mais/menos detalhe"**: ajuste só a apresentação, sem refazer o planejamento.
-* Em qualquer ajuste, devolva a tabela de sessões **e** o CSV atualizados, não só a explicação do que mudou.
+* Em qualquer ajuste, devolva a tabela de sessões atualizada **e** sobrescreva o `plano-de-estudos.csv` com `WriteFile`, não só a explicação do que mudou. Antes de reescrever, você pode usar `ReadFile` para conferir a versão atual do arquivo.

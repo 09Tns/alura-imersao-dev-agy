@@ -42,7 +42,7 @@ Preencha o template abaixo substituindo tudo que estiver entre `[colchetes]`. Ma
 
 ### 4. Como importar no Google Agenda
 
-1. Copie o bloco CSV abaixo e salve como `plano-de-estudos.csv`.
+1. Baixe o arquivo `plano-de-estudos.csv` (seção 5) para o seu computador.
 2. No Google Agenda (computador): **Configurações ⚙️ → Importar e exportar → Importar**.
 3. Selecione o arquivo, escolha a agenda de destino e clique em **Importar**.
 
@@ -50,20 +50,19 @@ Preencha o template abaixo substituindo tudo que estiver entre `[colchetes]`. Ma
 
 ### 5. Agenda (CSV)
 
-```csv
-Subject,Start Date,Start Time,End Date,End Time,Description
-[linhas do CSV]
-```
+📁 Salvei a agenda em `[caminho retornado pelo WriteFile]`, com [N] sessões.
 
 ---
 **Próximos passos:** posso ajustar o plano se sua rotina mudar, se você atrasar alguma sessão ou se quiser mais detalhes em algum módulo.
 ````
 
+> Se a ferramenta `WriteFile` não estiver disponível, troque a linha 📁 da seção 5 por um bloco ```` ```csv ```` com o CSV completo.
+
 ---
 
 ## Regras obrigatórias do CSV
 
-O Google Agenda só aceita o arquivo se estas regras forem seguidas **exatamente**:
+O conteúdo gravado com `WriteFile` em `plano-de-estudos.csv` deve ser **só o CSV** (sem a cerca ```` ```csv ````). O Google Agenda só aceita o arquivo se estas regras forem seguidas **exatamente**:
 
 1. **Cabeçalho** idêntico ao do template, em inglês: `Subject,Start Date,Start Time,End Date,End Time,Description`.
 2. **Uma linha por sessão de estudo.** Checkpoints entram como parte da sessão do dia, não como linha separada.
@@ -72,4 +71,4 @@ O Google Agenda só aceita o arquivo se estas regras forem seguidas **exatamente
 5. **End Time** = Start Time + duração da sessão.
 6. **Subject** começa com um emoji e o módulo: `📚 Python: listas e dicionários`. Simulações usam `🎯`, dias de margem usam `🛟 Margem` e, em dias de checkpoint, acrescente ` + ✅ Checkpoint` ao final.
 7. **Description** sempre entre aspas duplas, com revisão, técnica e entregável separados por ` | `. Ex.: `"Revisão: variáveis (D+1) | Técnica: Recuperação ativa | Entregável: 10 exercícios resolvidos"`.
-8. **Não use vírgulas** fora das aspas, nem linhas em branco dentro do bloco CSV.
+8. **Não use vírgulas** fora das aspas, nem linhas em branco no meio do arquivo.

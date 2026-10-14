@@ -68,13 +68,22 @@ Nada. O objetivo cabe no prazo. Se sobrar fôlego depois da entrevista, o próxi
 
 ### 4. Como importar no Google Agenda
 
-1. Copie o bloco CSV abaixo e salve como `plano-de-estudos.csv`.
+1. Baixe o arquivo `plano-de-estudos.csv` (seção 5) para o seu computador.
 2. No Google Agenda (computador): **Configurações ⚙️ → Importar e exportar → Importar**.
 3. Selecione o arquivo, escolha a agenda de destino e clique em **Importar**.
 
 > Dica: crie uma agenda separada chamada "Estudos". Se quiser refazer o plano, basta excluir essa agenda.
 
 ### 5. Agenda (CSV)
+
+📁 Salvei a agenda em `plano-de-estudos.csv`, com 10 sessões.
+
+---
+**Próximos passos:** posso ajustar o plano se sua rotina mudar, se você atrasar alguma sessão ou se quiser mais detalhes em algum módulo.
+
+---
+
+**Conteúdo gravado com `WriteFile` em `plano-de-estudos.csv`** (não aparece na resposta):
 
 ```csv
 Subject,Start Date,Start Time,End Date,End Time,Description
@@ -89,6 +98,3 @@ Subject,Start Date,Start Time,End Date,End Time,Description
 🎯 Python: simulação de entrevista,11/12/2026,08:00 PM,11/12/2026,09:00 PM,"Revisão: listas (D+7) e funções (D+3) | Técnica: Simulação | Entregável: 2 problemas em 40 min + lista de erros"
 🛟 Margem + ✅ Checkpoint,11/13/2026,08:00 PM,11/13/2026,09:00 PM,"Revisão: erros da simulação | Técnica: Recuperação ativa | Entregável: simulado extra ou pendências + checkpoint da semana 2"
 ```
-
----
-**Próximos passos:** posso ajustar o plano se sua rotina mudar, se você atrasar alguma sessão ou se quiser mais detalhes em algum módulo.
