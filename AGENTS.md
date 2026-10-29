@@ -17,7 +17,7 @@ Construir o **`agente-estudos`**: um agente **Google ADK** (Python) movido a ski
 * **Autenticação local:** API Key do Google AI Studio no arquivo `agente-estudos/.env`:
   ```env
   GOOGLE_GENAI_USE_VERTEXAI=FALSE
-  GEMINI_API_KEY=AQ.Ab8RN6JNPaAp-TJEEcFVsCUa0Aayw4q6twv0muQRSPPOk0Uisw
+  GEMINI_API_KEY=[sua api]
   MODEL=gemini-3.8-flash
   ```
 * **Execução local:**
